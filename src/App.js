@@ -1,22 +1,22 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import scifi from './Data/fantasy.json'
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import BookList from './Components/BookList'
+import RegistrationForm from './Components/RegistrationForm';
+import {BrowserRouter as Router , Route } from 'react-router-dom'
+
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Router >
+      {/* <BookList books={scifi} /> */}
+    <Route path='/' exact component={RegistrationForm}></Route>
+    <Route path= '/loggedintobookstore' exact render={()=> <BookList books={scifi}/>} />
+      </Router>
       </header>
     </div>
   );
